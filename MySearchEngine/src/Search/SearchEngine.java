@@ -27,7 +27,7 @@ public  class SearchEngine extends MyGUI
 	
 	//attributes
 	String fileName;
-	String s;
+	private String s;
 	
 	int count=0;   //Initialize the word to zero
     
@@ -39,6 +39,16 @@ public  class SearchEngine extends MyGUI
 		
 		this.fileName = fileName;
 	}
+	
+	
+	//get and set
+	String getS() {
+		return s;
+	}
+	void setS(String s) {
+		this.s = s;
+	}
+
 	
 	String inputWord = tf.getText();   // Input word to be searched
 	
@@ -63,6 +73,7 @@ public  class SearchEngine extends MyGUI
                if (word.equals(inputWord))   //Search for the given word
                {
                  count++;    //If Present increase the count by one
+             
                }
         }
     }
@@ -70,11 +81,14 @@ public  class SearchEngine extends MyGUI
     
     if(count!=0)  //Check for count not equal to zero
     {
+    	
        System.out.println("The word is present for "+count+ " Times in the file");
+       System.out.println("It is located in " + fileName );
+       
     }
     else
     {
-       System.out.println("The word is not present in the file");
+       System.out.println("Word not found");
     }
     
        fr1.close();
