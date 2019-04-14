@@ -26,10 +26,11 @@ public  class SearchEngine
 		while(i != 0)
 		{
 			
-		
+			System. out. println("Enter a word: ");
+			
 			//scanner to ask for user input
 			Scanner txt = new Scanner(System. in);
-			System. out. println("Enter a word: ");		
+					
 			//scanned text implemented into a variable
 			String input = txt.nextLine();
 			
@@ -55,43 +56,101 @@ public  class SearchEngine
 		    int countFr1=0;
 		    int countFr2=0;
 		    
+		    		    
+		    //asking the user which file to search
+		    System. out. println("Which file do you want to search? file1, file2 or both?");
+		    Scanner sFile = new Scanner(System. in);
 		    
+		    String fileName = sFile.nextLine();
+		    fileName = fileName.toLowerCase(); // convert the letters to lower case
 		    
-		    //while loop to read content from file1
-		    while((s=br1.readLine())!=null)
+		    //if statement to search the files that the user chose
+		    if(fileName.equals("file1"))
+		    {		    
+		    
+			    //while loop to read content from file1
+			    while((s=br1.readLine())!=null)
+			    {
+			    	
+			    	input = input.toLowerCase(); // convert the letters to lower case
+			    	words=s.split(" ");  //split the word using space
+			    	
+			    	//for loop for searching the given word
+			    	for (String word : words) 
+			    	{
+			               if (word.equals(input))
+			               {
+			                 countFr1++; //if word is found increase the count by one
+			               }
+			        }
+				    
+			    }
+		    }
+		    else if (fileName.equals("file2"))
+		    {
+			    //while loop to read content from file2
+			    while((s=br2.readLine())!=null)
+			    {
+		
+			    	input = input.toLowerCase(); // convert the letters to lower case
+			    	words=s.split(" ");  //split the word using space
+			    	
+			    	//for loop for searching the given word
+			    	for (String word : words) 
+			    	{
+			               if (word.equals(input))
+			               {
+			                 countFr2++; //if word is found increase the count by one
+			               }
+			        }
+			    	
+			    }
+		    }
+		    else if (fileName.equals("both"))
 		    {
 		    	
-		    	input = input.toLowerCase();
-		    	words=s.split(" ");  //split the word using space
-		    	
-		    	//for loop for searching the given word
-		    	for (String word : words) 
-		    	{
-		               if (word.equals(input))
-		               {
-		                 countFr1++; //if word is found increase the count by one
-		               }
-		        }
+		    	 //while loop to read content from file1
+			    while((s=br1.readLine())!=null)
+			    {
+			    	
+			    	input = input.toLowerCase(); // convert the letters to lower case
+			    	words=s.split(" ");  //split the word using space
+			    	
+			    	//for loop for searching the given word
+			    	for (String word : words) 
+			    	{
+			               if (word.equals(input))
+			               {
+			                 countFr1++; //if word is found increase the count by one
+			               }
+			        }
+				    
+			    }
 			    
+			    //while loop to read content from file2
+			    while((s=br2.readLine())!=null)
+			    {
+		
+			    	input = input.toLowerCase(); // convert the letters to lower case
+			    	words=s.split(" ");  //split the word using space
+			    	
+			    	//for loop for searching the given word
+			    	for (String word : words) 
+			    	{
+			               if (word.equals(input))
+			               {
+			                 countFr2++; //if word is found increase the count by one
+			               }
+			        }
+			    	
+			    }
+			    		    		    	
+		    }
+		    else
+		    {
+		    	System.out.println("File not found, please enter file name correctly.");
 		    }
 		    
-		  //while loop to read content from file2
-		    while((s=br2.readLine())!=null)
-		    {
-	
-		    	input = input.toLowerCase();
-		    	words=s.split(" ");  //split the word using space
-		    	
-		    	//for loop for searching the given word
-		    	for (String word : words) 
-		    	{
-		               if (word.equals(input))
-		               {
-		                 countFr2++; //if word is found increase the count by one
-		               }
-		        }
-		    	
-		    }
 		    
 		    
 		    //if statement to print how many times and in which file the word was found in
@@ -101,7 +160,7 @@ public  class SearchEngine
 		       System.out.println("The word is present "+countFr1+ " times in " +f1);
 		       
 		    }
-		    if(countFr2!=0)  
+		    else if(countFr2!=0)  
 		    {
 		    	//if yes, print how many time word is present
 		       System.out.println("The word is present "+countFr2+ " times in " +f2);
