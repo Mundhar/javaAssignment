@@ -28,15 +28,18 @@ public  class SearchEngine
 		
 		//creating a file descriptor for searching the files
 		File f1=new File("file1.txt"); 
+		File f2=new File("file2.txt");
 		
 		//initializing the word array
 	    String[] words=null;
 	    
 	    //creating file reader object
-	    FileReader fr = new FileReader(f1);  
+	    FileReader fr1 = new FileReader(f1);
+	    FileReader fr2 = new FileReader(f2);
 	    
 	    //creating buffered reader object
-	    BufferedReader br = new BufferedReader(fr); 
+	    BufferedReader br1 = new BufferedReader(fr1); 
+	    BufferedReader br2 = new BufferedReader(fr2); 
 	    
 	    //initializing string for word split 
 	    String s;     
@@ -47,8 +50,11 @@ public  class SearchEngine
 	    
 	    
 	    //while loop to read content from the files
-	    while((s=br.readLine())!=null)
+	    while((s=br1.readLine())!=null)
 	    {
+	    	while((s=br2.readLine())!=null)
+		    {
+	    	
 	    	input = input.toLowerCase();
 	    	words=s.split(" ");  //split the word using space
 	    	
@@ -60,6 +66,7 @@ public  class SearchEngine
 	                 count++; //if word is found increase the count by one
 	               }
 	        }
+		    }
 	    }
 	    
 	    
@@ -67,7 +74,7 @@ public  class SearchEngine
 	    if(count!=0)  
 	    {
 	    	//if yes, print how many time word is present
-	       System.out.println("The word is present "+count+ " Times in the file: " + f1);
+	       System.out.println("You entered the word '" +input+ "', The word is present "+count+ " Times.");
 	       
 	    }
 	    else
@@ -75,9 +82,11 @@ public  class SearchEngine
 	    	//if no, print word not found
 	       System.out.println("Word not found");
 	    }
+	     
+	       
 	    
-	       fr.close(); //close file reader
-	
+	    fr1.close(); //close file reader 1
+	    fr2.close(); //close file reader 2
 	}
 	
 	
