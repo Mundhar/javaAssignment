@@ -44,16 +44,15 @@ public  class SearchEngine
 	    //initializing string for word split 
 	    String s;     
 	    
-	    //initializing counter for word
-	    int count=0;
+	    //initializing counters
+	    int countFr1=0;
+	    int countFr2=0;
 	    
 	    
 	    
-	    //while loop to read content from the files
+	    //while loop to read content from file1
 	    while((s=br1.readLine())!=null)
 	    {
-	    	while((s=br2.readLine())!=null)
-		    {
 	    	
 	    	input = input.toLowerCase();
 	    	words=s.split(" ");  //split the word using space
@@ -63,18 +62,42 @@ public  class SearchEngine
 	    	{
 	               if (word.equals(input))
 	               {
-	                 count++; //if word is found increase the count by one
+	                 countFr1++; //if word is found increase the count by one
 	               }
 	        }
-		    }
+		    
+	    }
+	    
+	  //while loop to read content from file2
+	    while((s=br2.readLine())!=null)
+	    {
+
+	    	input = input.toLowerCase();
+	    	words=s.split(" ");  //split the word using space
+	    	
+	    	//for loop for searching the given word
+	    	for (String word : words) 
+	    	{
+	               if (word.equals(input))
+	               {
+	                 countFr2++; //if word is found increase the count by one
+	               }
+	        }
+	    	
 	    }
 	    
 	    
-	    //check for count not equal to zero
-	    if(count!=0)  
+	    //if statement to print how many times and in which file the word was found in
+	    if(countFr1!=0)  
 	    {
 	    	//if yes, print how many time word is present
-	       System.out.println("You entered the word '" +input+ "', The word is present "+count+ " Times.");
+	       System.out.println("The word is present "+countFr1+ " times in " +f1);
+	       
+	    }
+	    if(countFr2!=0)  
+	    {
+	    	//if yes, print how many time word is present
+	       System.out.println("The word is present "+countFr1+ " times in " +f2);
 	       
 	    }
 	    else
@@ -82,9 +105,8 @@ public  class SearchEngine
 	    	//if no, print word not found
 	       System.out.println("Word not found");
 	    }
-	     
-	       
 	    
+	   	    
 	    fr1.close(); //close file reader 1
 	    fr2.close(); //close file reader 2
 	}
