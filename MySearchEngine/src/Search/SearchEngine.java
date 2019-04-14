@@ -7,69 +7,76 @@
 
 package Search;
 
-import java.awt.TextField;
 import java.io.BufferedReader;  
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 		
 
 public  class SearchEngine 
 {
 	
-	
+	//constructor
 	SearchEngine() throws IOException 
 	{
-		
+		//scanner to ask for user input
 		Scanner txt = new Scanner(System. in);
-		System. out. println("Enter a string: ");
-		
+		System. out. println("Enter a string: ");		
+		//scanned text implemented into a variable
 		String input = txt.nextLine();
-		File f1=new File("file1.txt"); //Creation of File Descriptor for input file
-	    String[] words=null;  //Initialize the word Array
-	    FileReader fr = new FileReader(f1);  //Creation of File Reader object
-	    BufferedReader br = new BufferedReader(fr); //Creation of BufferedReader object
+		
+		//creating a file descriptor for searching the files
+		File f1=new File("file1.txt"); 
+		
+		//initializing the word array
+	    String[] words=null;
+	    
+	    //creating file reader object
+	    FileReader fr = new FileReader(f1);  
+	    
+	    //creating buffered reader object
+	    BufferedReader br = new BufferedReader(fr); 
+	    
+	    //initializing string for word split 
 	    String s;     
-	    //String input = "java" ;   // Input word to be searched
-	    int count=0;   //Initialize the word to zero
+	    
+	    //initializing counter for word
+	    int count=0;
 	    
 	    
 	    
-	    
-	    while((s=br.readLine())!=null)   //Reading Content from the file
+	    //while loop to read content from the files
+	    while((s=br.readLine())!=null)
 	    {
 	    	input = input.toLowerCase();
-	    	words=s.split(" ");  //Split the word using space
+	    	words=s.split(" ");  //split the word using space
+	    	
+	    	//for loop for searching the given word
 	    	for (String word : words) 
 	    	{
-	               if (word.equals(input))   //Search for the given word
+	               if (word.equals(input))
 	               {
-	                 count++;    //If Present increase the count by one
+	                 count++; //if word is found increase the count by one
 	               }
 	        }
 	    }
 	    
 	    
-	    if(count!=0)  //Check for count not equal to zero
+	    //check for count not equal to zero
+	    if(count!=0)  
 	    {
+	    	//if yes, print how many time word is present
 	       System.out.println("The word is present "+count+ " Times in the file: " + f1);
 	       
 	    }
 	    else
 	    {
+	    	//if no, print word not found
 	       System.out.println("Word not found");
 	    }
 	    
-	       fr.close();
+	       fr.close(); //close file reader
 	
 	}
 	

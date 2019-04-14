@@ -18,13 +18,15 @@ public class Control extends MyGUI
 		// TODO Auto-generated constructor stub
 	}
 
+	//main
 	public static void main(String[] args) throws IOException 
 	{
-		//new MyGUI ("java");
-		new SearchEngine ();
 		
+		new SearchEngine (); 
 		
- }
+	}	
+		
+ 
 }
 	
 	
