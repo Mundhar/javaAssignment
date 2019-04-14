@@ -27,7 +27,7 @@ public class MyGUI extends JFrame implements ActionListener, MouseListener
    
    
    
-
+	private String inputWord; 
 
 //constructor
    MyGUI(String inputWord)
@@ -131,6 +131,19 @@ public void mouseReleased(MouseEvent e) {
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
 	
+}
+
+
+
+
+//get and set
+String getInputWord() {
+	return inputWord;
+}
+
+
+void setInputWord(String inputWord) {
+	this.inputWord = inputWord;
 }     
 
 
