@@ -30,7 +30,7 @@ public class MyGUI extends JFrame implements ActionListener, MouseListener
 
 
 //constructor
-   MyGUI(String title, String inputWord)
+   MyGUI(String inputWord)
    {
 	   
 	   //creating the GUI
@@ -73,6 +73,14 @@ public class MyGUI extends JFrame implements ActionListener, MouseListener
 			   l2.setText("Searching for word...");				
 		   }          
 	   });
+}
+
+
+
+
+
+public MyGUI(String title, String inputWord) {
+	// TODO Auto-generated constructor stub
 }
 
 
