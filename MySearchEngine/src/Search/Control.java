@@ -17,7 +17,11 @@ public class Control
 	public static void main(String[] args)
 	{
 		
-		MyGUI gui = new MyGUI("MySearchEngine"); 
+		//MyGUI w1 = new MyGUI("MySearchEngine");
+		
+		
+		SearchEngine w1 = new SearchEngine("file2", "java");
+		
 				 
 	  }
 }

@@ -27,6 +27,7 @@ public  class SearchEngine extends MyGUI
 	
 	//attributes
 	String fileName;
+	private String inputWord;
 	private String s;
 	
 	int count=0;   //Initialize the word to zero
@@ -35,9 +36,10 @@ public  class SearchEngine extends MyGUI
 	//constructor
 	SearchEngine (String fileName, String inputWord)
 	{
-		super(fileName);
+		super(fileName, inputWord);
 		
 		this.fileName = fileName;
+		this.setInputWord(inputWord);
 	}
 	
 	
@@ -49,12 +51,21 @@ public  class SearchEngine extends MyGUI
 		this.s = s;
 	}
 
-	
-	String inputWord = tf.getText();   // Input word to be searched
-	
+
 	
 	
 	
+	
+	String getInputWord() {
+		return inputWord;
+	}
+
+
+	void setInputWord(String inputWord) {
+		this.inputWord = inputWord;
+	}
+
+
 	File f1=new File("file1.txt"); //Creation of File Descriptor for input file
 	 
     String[] words=null;  //Initialize the word Array
@@ -65,12 +76,12 @@ public  class SearchEngine extends MyGUI
    
     
     
-    while((s=br1.readLine())!=null)   //Reading Content from the file
+    while((s=br1.readLine())!=null)   //Reading from the file
     {     	  
        words=fileName.split(" ");  //Split the word using space
         for (String word : words) 
         {
-               if (word.equals(inputWord))   //Search for the given word
+               if (word.equals(getInputWord()))   //Search for the given word
                {
                  count++;    //If Present increase the count by one
              
