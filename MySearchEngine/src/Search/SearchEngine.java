@@ -97,7 +97,7 @@ public  class SearchEngine
 	    if(countFr2!=0)  
 	    {
 	    	//if yes, print how many time word is present
-	       System.out.println("The word is present "+countFr1+ " times in " +f2);
+	       System.out.println("The word is present "+countFr2+ " times in " +f2);
 	       
 	    }
 	    else
