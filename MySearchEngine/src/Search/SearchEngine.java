@@ -20,10 +20,10 @@ public  class SearchEngine
 	//constructor
 	SearchEngine() throws IOException 
 	{
-		int n = 1;
+		int i = 1;
 		
 		//while loop to keep the program running 
-		while(n != 0)
+		while(i != 0)
 		{
 			
 		
