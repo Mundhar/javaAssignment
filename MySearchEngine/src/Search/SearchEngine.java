@@ -58,7 +58,7 @@ public  class SearchEngine
 		    
 		    		    
 		    //asking the user which file to search
-		    System. out. println("Which file do you want to search? file1, file2 or both?");
+		    System. out. println("\nWhich file do you want to search? file1, file2 or both?");
 		    Scanner sFile = new Scanner(System. in);
 		    
 		    String fileName = sFile.nextLine();
@@ -148,7 +148,7 @@ public  class SearchEngine
 		    }
 		    else
 		    {
-		    	System.out.println("File not found, please enter file name correctly.");
+		    	System.out.println("File not found, please enter file name correctly.\n");
 		    }
 		    
 		    
@@ -169,7 +169,7 @@ public  class SearchEngine
 		    else
 		    {
 		    	//if no, print word not found
-		       System.out.println("Word not found");
+		       System.out.println("Word not found\n");
 		    }
 		    
 		   	    
