@@ -7,6 +7,7 @@
 
 package Search;
 
+import java.awt.TextField;
 import java.io.BufferedReader;  
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,24 +23,23 @@ import java.util.Scanner;
 import java.util.Set;
 		
 
-public  class SearchEngine extends MyGUI
+public  class SearchEngine 
 {
 	
 	
-	SearchEngine(String inputWord) 
+	SearchEngine() throws IOException 
 	{
-		super(inputWord);	
-	}
-	
-	
-	private void FileReader() throws IOException
-	{
+		
+		Scanner txt = new Scanner(System. in);
+		System. out. println("Enter a string: ");
+		
+		String input = txt.nextLine();
 		File f1=new File("file1.txt"); //Creation of File Descriptor for input file
 	    String[] words=null;  //Initialize the word Array
 	    FileReader fr = new FileReader(f1);  //Creation of File Reader object
 	    BufferedReader br = new BufferedReader(fr); //Creation of BufferedReader object
 	    String s;     
-	    String input="java";   // Input word to be searched
+	    //String input = "java" ;   // Input word to be searched
 	    int count=0;   //Initialize the word to zero
 	    
 	    
@@ -47,6 +47,7 @@ public  class SearchEngine extends MyGUI
 	    
 	    while((s=br.readLine())!=null)   //Reading Content from the file
 	    {
+	    	input = input.toLowerCase();
 	    	words=s.split(" ");  //Split the word using space
 	    	for (String word : words) 
 	    	{
@@ -61,6 +62,7 @@ public  class SearchEngine extends MyGUI
 	    if(count!=0)  //Check for count not equal to zero
 	    {
 	       System.out.println("The word is present "+count+ " Times in the file: " + f1);
+	       
 	    }
 	    else
 	    {
@@ -70,5 +72,6 @@ public  class SearchEngine extends MyGUI
 	       fr.close();
 	
 	}
+	
 	
 }
